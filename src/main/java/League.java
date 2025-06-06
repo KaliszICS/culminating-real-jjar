@@ -26,14 +26,24 @@ public class League {
     }
 
     public void generateSchedule() {
-
-    }
-
-    public void addTeam(Team team) {
         
     }
 
+    public void addTeam(Team team) {
+        ArrayList<Player> players = team.getPlayers();
+        if (players != null && !players.isEmpty()) {
+            teams.add(team.getTeamName());
+        } else {
+            System.out.println("Team must have players to be added to the league.");
+        }
+    }
+
     public void removeTeam(Team team) {
-        teams.remove(team);
+        if(teams.contains(team.getTeamName())) {
+            teams.remove(team.getTeamName());
+            
+        } else {
+            System.out.println("Team does not exist in the league.");
+        }
     }
 }

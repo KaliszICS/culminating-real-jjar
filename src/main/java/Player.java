@@ -11,5 +11,12 @@ public class Player {
         this.assists = assists;
         this.position = position;
         this.saves = saves;
+        
     }
+
+    public String getName() {
+        return name;
+    }
+
+
 }
