@@ -4,13 +4,15 @@ public class Player {
     private int assists;
     private String position;
     private int saves;
+    private int matchesPlayed;
 
-    public Player(String name, String goals, String assists, String position, String saves) {
+    public Player(String name, int goals, int assists, String position, int saves, int matchesPlayed) {
         this.name = name;
         this.goals = goals;
         this.assists = assists;
         this.position = position;
         this.saves = saves;
+        this.matchesPlayed = matchesPlayed;
         
     }
 
@@ -28,5 +30,8 @@ public class Player {
     }
     public int getSaves() {
         return saves;
+    }
+    public int getMatchesPlayed() {
+        return matchesPlayed;
     }
 }
