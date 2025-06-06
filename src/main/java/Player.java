@@ -1,9 +1,9 @@
 public class Player {
     private String name;
-    private String goals;
-    private String assists;
+    private int goals;
+    private int assists;
     private String position;
-    private String saves;
+    private int saves;
 
     public Player(String name, String goals, String assists, String position, String saves) {
         this.name = name;
@@ -17,6 +17,16 @@ public class Player {
     public String getName() {
         return name;
     }
-
-
+    public int getGoals() {
+        return goals;
+    }
+    public int getAssists() {
+        return goals;
+    }
+    public String getPosition() {
+        return position;
+    }
+    public int getSaves() {
+        return saves;
+    }
 }
