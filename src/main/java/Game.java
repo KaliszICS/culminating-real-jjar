@@ -7,7 +7,7 @@ public class Game {
     private boolean gameOver;
 
     
-    public Game(Team team1, Team team2) {
+    public Game(Team team1, Team team2, int team1Score, int team2Score, boolean gameOver) {
         this.team1 = team1;
         this.team2 = team2;
         this.team1Score = 0;  // Games start at 0-0
