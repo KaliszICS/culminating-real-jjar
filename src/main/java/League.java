@@ -1,34 +1,41 @@
 import java.util.ArrayList;
 
-public class League {
-    private String sport;
-    private String results;
-    private Schedule schedule;
-    private String teamStandings;
-    private ArrayList<String> teams;
+public abstract class League implements SportsLeague {
+    protected String sport;
+    protected String results;
+    protected Schedule schedule;
+    protected String teamStandings;
+    protected ArrayList<String> teams;
+    protected ArrayList<Game> games;
 
-    public League(String sport, String results, Schedule schedule, String teamStandings, ArrayList<String> teams) {
+    public League(String sport) {
         this.sport = sport;
-        this.results = results;
-        this.schedule = schedule;
-        this.teamStandings = teamStandings;
-        this.teams = teams;
+        this.teams = new ArrayList<>();
+        this.games = new ArrayList<>();
+        this.schedule = new Schedule();
     }
+
+    @Override
     public String getSport() {
         return sport;
     }
 
-    public void calculateStandings() {
-        if(teamStandings != null) {
-            teamStandings.compareTo(teamStandings);
-
-        }
+    @Override
+    public ArrayList<String> getTeams() {
+        return teams;
     }
 
-    public void generateSchedule() {
-        
+    @Override
+    public Schedule getSchedule() {
+        return schedule;
     }
 
+    @Override
+    public String getStandings() {
+        return teamStandings;
+    }
+
+    @Override
     public void addTeam(Team team) {
         ArrayList<Player> players = team.getPlayers();
         if (players != null && !players.isEmpty()) {
@@ -38,12 +45,30 @@ public class League {
         }
     }
 
+    @Override
     public void removeTeam(Team team) {
         if(teams.contains(team.getTeamName())) {
             teams.remove(team.getTeamName());
-            
         } else {
             System.out.println("Team does not exist in the league.");
         }
     }
+
+    @Override
+    public void recordGameResult(Game game) {
+        games.add(game);
+        updateTeamStats(game.getHomeTeam());
+        updateTeamStats(game.getAwayTeam());
+        calculateStandings();
+    }
+
+    //abstract methods to be implemented in specific sport leagues
+    @Override
+    public abstract void calculateStandings();
+    
+    @Override
+    public abstract void generateSchedule();
+    
+    @Override
+    public abstract void updateTeamStats(Team team);
 }
