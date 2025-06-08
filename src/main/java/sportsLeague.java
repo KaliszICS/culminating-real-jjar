@@ -1,8 +1,17 @@
-public interface sportsLeague {
-    void generateSchedule();
-    void calculateStandings();
+public interface SportsLeague {
+    //main
     void addTeam(Team team);
     void removeTeam(Team team);
-    void playGame(Game game);
-    void displayStandings();
+    void calculateStandings();
+    void generateSchedule();
+    
+    //getters
+    String getSport();
+    ArrayList<String> getTeams();
+    Schedule getSchedule();
+    String getStandings();
+    
+    //mangement
+    void recordGameResult(Game game);
+    void updateTeamStats(Team team);
 } 
