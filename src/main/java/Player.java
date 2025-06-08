@@ -44,7 +44,7 @@ public class Player {
         System.out.println("Goals: " + goals + ", Assists: " + assists + ", Saves: " + saves);
     }
 
-    public void displayProfile(String player) {
+    public void displayProfile() {
         System.out.println("(---Player Status---)");
         System.out.println("Name: " + name);
         System.out.println("Position: " + position);
