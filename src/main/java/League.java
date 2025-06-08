@@ -57,8 +57,8 @@ public abstract class League implements SportsLeague {
     @Override
     public void recordGameResult(Game game) {
         games.add(game);
-        updateTeamStats(game.getHomeTeam());
-        updateTeamStats(game.getAwayTeam());
+        updateTeamStats(game.getTeam1());
+        updateTeamStats(game.getTeam2());
         calculateStandings();
     }
 
