@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public interface SportsLeague {
     //main
     void addTeam(Team team);
