@@ -15,10 +15,30 @@ public class FileManager {
                               game.isGameOver();
                 bw.write(gameData);
                 bw.newLine();
+                bw.close();
             }
             System.out.println("Games saved to " + filename);
         } catch (IOException e) {
             System.out.println(e);
         }
+    }
+
+    public static void saveScheduleToFile(Schedule schedule, String fileName) {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter (fileName));
+            for (Game game : schedule.getGames()) {
+                String gameData = game.getTeam1().getTeamName() + "," +
+                                  game.getTeam2().getTeamName() + "," +
+                                  game.getTeam1Score() + "," +
+                                  game.getTeam2Score() + "," +
+                                  game.isGameOver();
+                bw.write(gameData);
+                bw.newLine();
+                bw.close();
+            }
+            System.out.println("Schedule saved to " + fileName);
+        } catch (IOException e) {
+            System.out.println(e);
+        } 
     }
 }
