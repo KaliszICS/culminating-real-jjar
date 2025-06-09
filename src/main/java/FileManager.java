@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class FileManager {
 
-    public static void saveGamesToFile(ArrayList<Game> games, String filename) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
+    public static void saveGamesToFile(ArrayList<Game> games, String fileName) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))) {
             for (Game game : games) {
                 String gameData = game.getTeam1().getTeamName() + "," +
                               game.getTeam2().getTeamName() + "," +
@@ -17,7 +17,7 @@ public class FileManager {
                 bw.newLine();
                 bw.close();
             }
-            System.out.println("Games saved to " + filename);
+            System.out.println("Games saved to " + fileName);
         } catch (IOException e) {
             System.out.println(e);
         }
