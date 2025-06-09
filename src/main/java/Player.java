@@ -23,7 +23,7 @@ public class Player {
         return goals;
     }
     public int getAssists() {
-        return goals;
+        return assists;
     }
     public String getPosition() {
         return position;
@@ -38,7 +38,7 @@ public class Player {
     public void updateStatus(int newGoals, int newAssists, int newSaves) {
         this.goals += newGoals; //adds current goals with updated goals from new games
         this.assists += newAssists;
-        this.saves = +newSaves;
+        this.saves += newSaves;
 
         System.out.println("Updated stats for " + name + ":");
         System.out.println("Goals: " + goals + ", Assists: " + assists + ", Saves: " + saves);
