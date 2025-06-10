@@ -5,36 +5,23 @@ public class Player {
     private String position;
     private int saves;
     private int matchesPlayed;
-    private String assignedTeam;
-    
 
-    public Player(String name, int goals, int assists, String position, int saves, int matchesPlayed, String assignedTeam) {
+    public Player(String name, int goals, int assists, String position, int saves, int matchesPlayed) {
         this.name = name;
-        this.goals = goals;
-        this.assists = assists;
         this.position = position;
-        this.saves = saves;
         this.matchesPlayed = matchesPlayed;
-        this.assignedTeam = assignedTeam;
         
     }
-
+    
     public String getName() {
         return name;
     }
-    public int getGoals() {
-        return goals;
-    }
-    public int getAssists() {
-        return assists;
-    }
+  
     public String getPosition() {
         return position;
+
     }
-    public int getSaves() {
-        return saves;
-    }
-    public int getMatchesPlayed() {
+    public int getMatchesPlayed(){
         return matchesPlayed;
     }
     public String getAssignedTeam() {
@@ -74,4 +61,5 @@ public class Player {
             System.out.println("Assists per match: " + assistsPerGame);
         }
     }
+    
 }
