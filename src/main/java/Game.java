@@ -1,3 +1,7 @@
+/**
+ * Represents a game between two teams.
+ * Contains information about the teams, their scores, and the game status.
+ */
 public class Game {
     final Team team1;
     final Team team2;
@@ -5,7 +9,14 @@ public class Game {
     private int team2Score; 
     private boolean gameOver;
 
-    
+    /**
+     * Constructor to initialize a Game object with two teams and their scores.
+     * @param team1 The first team.
+     * @param team2 The second team.
+     * @param team1Score The score of the first team.
+     * @param team2Score The score of the second team.
+     * @param gameOver Indicates whether the game is over or not.
+     */
     public Game(Team team1, Team team2, int team1Score, int team2Score, boolean gameOver) {
         this.team1 = team1;
         this.team2 = team2;
@@ -14,22 +25,42 @@ public class Game {
         this.gameOver = gameOver;
     }
 
+    /**
+     * Returns the first team in the game.
+     * @return The first team.
+     */
     public Team getTeam1() {
         return team1;
     }
 
+    /**
+     * Returns the second team in the game.
+     * @return The second team.
+     */
     public Team getTeam2() {
         return team2;
     }
 
+    /**
+     * Returns the score of the first team.
+     * @return The score of the first team.
+     */
     public int getTeam1Score() {
         return team1Score;
     }
     
+    /**
+     * Returns the score of the second team.
+     * @return The score of the second team.
+     */
     public int getTeam2Score() {
         return team2Score;
     }
 
+    /**
+     * Returns the status of the game (whether it is over or not).
+     * @return True if the game is over, false otherwise.
+     */
     public boolean isGameOver() {
         return gameOver;
     }
@@ -68,7 +99,11 @@ public class Game {
 
 //   }
     
-
+    /**
+     * Returns a string representation of the game, including team names and scores.
+     * The format depends on whether the game is over or not.
+     * @return A string describing the game.
+     */
     @Override
     public String toString() {
         // Fixed: Use actual team scores instead of generic score variable
