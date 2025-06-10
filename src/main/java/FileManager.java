@@ -55,7 +55,7 @@ public class FileManager {
         }
     }
 
-       public static void saveTeamsToFile(ArrayList<Team> teams) {
+       public static void saveTeamsToFile(ArrayList<Team> teams) { // When it's saved to the file it the player name doesn't show, but is replaced by the index location of it for some reason (SOMEONE HELP FIX PLEASE)
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("TeamsFile.txt"))) {
                 for(Team team : teams) {
                     String teamData = team.getTeamName() + "," +
