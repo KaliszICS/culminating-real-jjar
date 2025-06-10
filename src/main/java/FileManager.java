@@ -69,7 +69,27 @@ public class FileManager {
        } catch (IOException e) {
            System.out.println(e);
                 
-         } 
+         }
+    }
+
+    public static void savePlayersToFile(ArrayList<Player> players) {
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter("PlayersFile.txt"))) {
+            for(Player player : players) {
+                String playerData = player.getName() + "," +
+                                    player.getPosition() + "," +
+                                    player.getGoals() + "," + 
+                                    player.getAssists() + "," +
+                                    player.getSaves() + "," + 
+                                    player.getMatchesPlayed() + "," +
+                                    player.getAssignedTeam();
+                
+                bw.write(playerData);
+                bw.newLine();
+            }
+            System.out.println("Players saved to " + "PlayersFile.txt");
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 }
 
