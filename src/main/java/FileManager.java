@@ -8,14 +8,14 @@ public class FileManager {
     public static void saveGamesToFile(ArrayList<Game> games) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("GamesFile.txt"))) {
             for (Game game : games) {
-                String gameData = game.getTeam1().getTeamName() + "," +
+                String gameData = game.getTeam1().getTeamName() + "," + // Format of how it's going to be stored in the file    
                               game.getTeam2().getTeamName() + "," +
                               game.getTeam1Score() + "," +
                               game.getTeam2Score() + "," +
                               game.isGameOver();
                 bw.write(gameData);
                 bw.newLine();
-                bw.close();
+                
             }
             System.out.println("Games saved to " + "GamesFile.txt");
         } catch (IOException e) {
@@ -33,13 +33,27 @@ public class FileManager {
                                   game.getTeam2Score() + "," +
                                   game.isGameOver();
                 bw.write(gameData);
-                bw.newLine();
-                bw.close();
+                bw.newLine();     
             }
             System.out.println("Schedule saved to " + "ScheduleFile.txt");
         } catch (IOException e) {
             System.out.println(e);
         } 
+
+    }
         
+       
+        public static void saveStandingsToFile(String standings) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("StandingsFile.txt"))) {
+            bw.write(standings);
+            bw.newLine();
+            
+            System.out.println("Standings saved to " + "StandingsFile.txt");
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+    
+
     }
 }
