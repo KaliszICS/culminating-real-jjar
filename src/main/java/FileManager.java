@@ -21,12 +21,12 @@ public class FileManager {
         } catch (IOException e) {
             System.out.println(e);
         }
+        
     }
 
     public static void saveScheduleToFile(Schedule schedule) {
-        try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter ("ScheduleFile.txt"));
-            for (Game game : schedule.getGames()) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter ("ScheduleFile.txt"))) {
+                for (Game game : schedule.getGames()) {
                 String gameData = game.getTeam1().getTeamName() + "," +
                                   game.getTeam2().getTeamName() + "," +
                                   game.getTeam1Score() + "," +
@@ -34,7 +34,8 @@ public class FileManager {
                                   game.isGameOver();
                 bw.write(gameData);
                 bw.newLine();     
-            }
+        }
+            
             System.out.println("Schedule saved to " + "ScheduleFile.txt");
         } catch (IOException e) {
             System.out.println(e);
@@ -52,8 +53,24 @@ public class FileManager {
         } catch (IOException e) {
             System.out.println(e);
         }
+    }
 
-    
-
+       public static void saveTeamsToFile(ArrayList<Team> teams) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("TeamsFile.txt"))) {
+                for(Team team : teams) {
+                    String teamData = team.getTeamName() + "," +
+                                      team.getPlayers() + "," + 
+                                      team.getPlayers().size();
+                    bw.write(teamData);
+                    bw.newLine();   
+             
+                }     
+                System.out.println("Teams saved to " + "TeamsFile.txt");
+       } catch (IOException e) {
+           System.out.println(e);
+                
+         } 
     }
 }
+
+
