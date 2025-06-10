@@ -10,7 +10,6 @@ public class Player {
         this.name = name;
         this.position = position;
         this.matchesPlayed = matchesPlayed;
-        
     }
     
     public String getName() {

@@ -1,17 +1,26 @@
 public class BasketballPlayer extends player{
-    private int points;
-    private int assists;
-    private int rebounds;
-    private int blocks;
-    private int steals;
+    private int totalpoints;
+    private int totalassists;
+    private int totalrebounds;
+    private int totalblocks;
+    private int totalsteals;
    
 
-    public BasketballPlayer(int points, int assists, int rebounds, int blocks, int steals){
+    public BasketballPlayer(int totalpoints, int totalassists, int totalrebounds, int totalblocks, int totalsteals){
         super(name, position, matchesPlayed);
-        this.points = points;
-        this.assists = assists;
-        this.rebounds = rebounds;
-        this.blocks = blocks;
-        this.steals = steals;
+        this.totalpoints = totalpoints;
+        this.totalassists = totalassists;
+        this.totalrebounds = totalrebounds;
+        this.totalblocks = totalblocks;
+        this.totalsteals = totalsteals;
     }
+
+    public double averages(){
+        if (matchesPlayed == 0);
+            return "No matches played";
+        return (double) totalpoints/matchesPlayed + "PPG | " + (double) totalassists/matchesPlayed + "APG | " 
+        + (double) totalrebounds/matchesPlayed + "RPG | " + (double) totalblocks/matchesPlayed + "BPG | " 
+        + (double) totalsteals/matchesPlayed + "SPG | ";
+    }
+    
 }
