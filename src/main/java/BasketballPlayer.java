@@ -15,6 +15,22 @@ public class BasketballPlayer extends player{
         this.totalsteals = totalsteals;
     }
 
+    public int getTotalPoints(){
+        return totalpoints;
+    }
+    public int getTotalAssists(){
+        return totalassists;
+    }
+    public int getTotalRebounds(){
+        return totalrebounds;
+    }
+    public int getTotalBlocks(){
+        return totalblocks;
+    }
+    public int getTotalSteals(){
+        return totalSteals;
+    }
+    
     public double averages(){
         if (matchesPlayed == 0);
             return "No matches played";
