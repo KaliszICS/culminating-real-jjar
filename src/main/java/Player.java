@@ -5,14 +5,17 @@ public class Player {
     private String position;
     private int saves;
     private int matchesPlayed;
+    private String assignedTeam;
+    
 
-    public Player(String name, int goals, int assists, String position, int saves, int matchesPlayed) {
+    public Player(String name, int goals, int assists, String position, int saves, int matchesPlayed, String assignedTeam) {
         this.name = name;
         this.goals = goals;
         this.assists = assists;
         this.position = position;
         this.saves = saves;
         this.matchesPlayed = matchesPlayed;
+        this.assignedTeam = assignedTeam;
         
     }
 
@@ -34,6 +37,13 @@ public class Player {
     public int getMatchesPlayed() {
         return matchesPlayed;
     }
+    public String getAssignedTeam() {
+        return assignedTeam;
+    }
+    public void setPlayerTeam(String team) {
+        this.assignedTeam = team; //sets the team for the player
+        System.out.println(name + " has been assigned to team: " + assignedTeam);
+    }
 
     public void updateStatus(int newGoals, int newAssists, int newSaves) {
         this.goals += newGoals; //adds current goals with updated goals from new games
@@ -52,6 +62,7 @@ public class Player {
         System.out.println("Assists: " + assists);
         System.out.println("Saves: " + saves);
         System.out.println("Matches Played: " + matchesPlayed);
+        System.out.println("Assigned Team: " + assignedTeam);
        
     }
 
