@@ -73,7 +73,9 @@ public class VolleyballPlayer extends Player {
         }
         incrementGamesPlayed();
     }
-
+/**
+ * @return a string of all the player's per-game statistics as doubles
+ */
     public String averages() {
         if (getGamesPlayed() == 0)
             return "No games played";
