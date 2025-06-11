@@ -130,7 +130,7 @@ public abstract class League implements SportsLeague {
         teamStandings = standings.getStandings();
     }
 
-    //abstract methods to be implemented in specific sport leagues
+    //abstract methods
     
     /**
      * Updates the statistics of a team based on the results of the games played.
