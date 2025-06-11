@@ -1,12 +1,13 @@
 public class VolleyballPlayer extends Player {
-    private int kills;
-    private int blocks;
-    private int digs;
-    private int aces;
-    private int assists;
-    private int serviceErrors;
-    private int attackErrors;
-    private int totalAttacks;
+    protected int points;
+    protected int kills;
+    protected int blocks;
+    protected int digs;
+    protected int aces;
+    protected int assists;
+    protected int serviceErrors;
+    protected int attackErrors;
+    protected double attackPercentage;
 
     /**
      * Constructor for the VolleyballPlayer class.
@@ -25,7 +26,7 @@ public class VolleyballPlayer extends Player {
         this.assists = 0;
         this.serviceErrors = 0;
         this.attackErrors = 0;
-        this.totalAttacks = 0;
+        this.attackPercentage = 0.0;
     }
 
     /**
@@ -34,18 +35,17 @@ public class VolleyballPlayer extends Player {
      */
     @Override
     public String getStats() {
-        String stats = "\nVolleyball Statistics for " + getName() + ":\n" +
-                      "Points: " + getPoints() + "\n" +
-                      "Kills: " + kills + "\n" +
-                      "Blocks: " + blocks + "\n" +
-                      "Digs: " + digs + "\n" +
-                      "Aces: " + aces + "\n" +
-                      "Assists: " + assists + "\n" +
-                      "Service Errors: " + serviceErrors + "\n" +
-                      "Attack Errors: " + attackErrors + "\n" +
-                      "Attack Percentage: " + calculateAttackPercentage() + "%\n" +
-                      "Games Played: " + getGamesPlayed() + "\n";
-        return stats;
+        return "\nVolleyball Statistics for " + getName() + ":\n" +
+               "Points: " + points + "\n" +
+               "Kills: " + kills + "\n" +
+               "Blocks: " + blocks + "\n" +
+               "Digs: " + digs + "\n" +
+               "Aces: " + aces + "\n" +
+               "Assists: " + assists + "\n" +
+               "Service Errors: " + serviceErrors + "\n" +
+               "Attack Errors: " + attackErrors + "\n" +
+               "Attack Percentage: " + String.format("%.1f", attackPercentage) + "%\n" +
+               "Games Played: " + getGamesPlayed() + "\n";
     }
 
     /**
@@ -59,27 +59,29 @@ public class VolleyballPlayer extends Player {
             System.out.println("Invalid stats array length. Expected 9 values.");
             return;
         }
-
-        addPoints(stats[0]);
-        kills += stats[1];
-        blocks += stats[2];
-        digs += stats[3];
-        aces += stats[4];
-        assists += stats[5];
-        serviceErrors += stats[6];
-        attackErrors += stats[7];
-        totalAttacks += stats[8];
+        kills += stats[0];
+        blocks += stats[1];
+        digs += stats[2];
+        aces += stats[3];
+        assists += stats[4];
+        serviceErrors += stats[5];
+        attackErrors += stats[6];
+        int successfulAttacks = stats[7];
+        int totalAttacks = stats[8];
+        if (totalAttacks > 0) {
+            attackPercentage = (double) successfulAttacks / totalAttacks * 100;
+        }
         incrementGamesPlayed();
     }
 
-    /**
-     * Calculates the player's attack percentage.
-     * @return the attack percentage as a double
-     */
-    private double calculateAttackPercentage() {
-        if (totalAttacks == 0) {
-            return 0.0;
-        }
-        return ((double) (kills - attackErrors) / totalAttacks) * 100;
+    public String averages() {
+        if (getGamesPlayed() == 0)
+            return "No games played";
+        return String.format("%.1f Points/Game | %.1f Kills/Game | %.1f Blocks/Game | %.1f Digs/Game | %.1f Aces/Game",
+            (double) points/getGamesPlayed(),
+            (double) kills/getGamesPlayed(),
+            (double) blocks/getGamesPlayed(),
+            (double) digs/getGamesPlayed(),
+            (double) aces/getGamesPlayed());
     }
 } 

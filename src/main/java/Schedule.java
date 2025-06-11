@@ -10,4 +10,8 @@ public class Schedule {
     public void addGame(Game game) {
         games.add(game);
     }
+
+    public ArrayList<Game> getGames() {
+        return games;
+    }
 }

@@ -1,14 +1,15 @@
 public class BasketballPlayer extends Player {
-    private int rebounds;
-    private int assists;
-    private int steals;
-    private int blocks;
-    private int fieldGoalsMade;
-    private int fieldGoalsAttempted;
-    private int threePointersMade;
-    private int threePointersAttempted;
-    private int freeThrowsMade;
-    private int freeThrowsAttempted;
+    protected int points;
+    protected int rebounds;
+    protected int assists;
+    protected int steals;
+    protected int blocks;
+    protected int fieldGoals;
+    protected int fieldGoalAttempts;
+    protected int threePointers;
+    protected int threePointAttempts;
+    protected int freeThrows;
+    protected int freeThrowAttempts;
 
     /**
      * Constructor for the BasketballPlayer class.
@@ -24,12 +25,12 @@ public class BasketballPlayer extends Player {
         this.assists = 0;
         this.steals = 0;
         this.blocks = 0;
-        this.fieldGoalsMade = 0;
-        this.fieldGoalsAttempted = 0;
-        this.threePointersMade = 0;
-        this.threePointersAttempted = 0;
-        this.freeThrowsMade = 0;
-        this.freeThrowsAttempted = 0;
+        this.fieldGoals = 0;
+        this.fieldGoalAttempts = 0;
+        this.threePointers = 0;
+        this.threePointAttempts = 0;
+        this.freeThrows = 0;
+        this.freeThrowAttempts = 0;
     }
 
     /**
@@ -39,14 +40,14 @@ public class BasketballPlayer extends Player {
     @Override
     public String getStats() {
         String stats = "\nBasketball Statistics for " + getName() + ":\n" +
-                      "Points: " + getPoints() + "\n" +
+                      "Points: " + points + "\n" +
                       "Rebounds: " + rebounds + "\n" +
                       "Assists: " + assists + "\n" +
                       "Steals: " + steals + "\n" +
                       "Blocks: " + blocks + "\n" +
-                      "Field Goals: " + fieldGoalsMade + "/" + fieldGoalsAttempted + "\n" +
-                      "3-Pointers: " + threePointersMade + "/" + threePointersAttempted + "\n" +
-                      "Free Throws: " + freeThrowsMade + "/" + freeThrowsAttempted + "\n" +
+                      "Field Goals: " + fieldGoals + "/" + fieldGoalAttempts + "\n" +
+                      "3-Pointers: " + threePointers + "/" + threePointAttempts + "\n" +
+                      "Free Throws: " + freeThrows + "/" + freeThrowAttempts + "\n" +
                       "Games Played: " + getGamesPlayed() + "\n";
         return stats;
     }
@@ -69,12 +70,23 @@ public class BasketballPlayer extends Player {
         assists += stats[2];
         steals += stats[3];
         blocks += stats[4];
-        fieldGoalsMade += stats[5];
-        fieldGoalsAttempted += stats[6];
-        threePointersMade += stats[7];
-        threePointersAttempted += stats[8];
-        freeThrowsMade += stats[9];
-        freeThrowsAttempted += stats[10];
+        fieldGoals += stats[5];
+        fieldGoalAttempts += stats[6];
+        threePointers += stats[7];
+        threePointAttempts += stats[8];
+        freeThrows += stats[9];
+        freeThrowAttempts += stats[10];
         incrementGamesPlayed();
+    }
+
+    public String averages() {
+        if (getGamesPlayed() == 0)
+            return "No games played";
+        return String.format("%.1f Points/Game | %.1f Rebounds/Game | %.1f Assists/Game | %.1f Steals/Game | %.1f Blocks/Game",
+            (double) points/getGamesPlayed(),
+            (double) rebounds/getGamesPlayed(),
+            (double) assists/getGamesPlayed(),
+            (double) steals/getGamesPlayed(),
+            (double) blocks/getGamesPlayed());
     }
 }

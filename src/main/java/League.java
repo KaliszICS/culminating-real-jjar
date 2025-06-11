@@ -11,6 +11,7 @@ public abstract class League implements SportsLeague {
     protected String teamStandings;
     protected ArrayList<String> teams;
     protected ArrayList<Game> games;
+    protected Standings standings;
 
     /**
      * Constructs a new League. 
@@ -21,6 +22,7 @@ public abstract class League implements SportsLeague {
         this.teams = new ArrayList<>();
         this.games = new ArrayList<>();
         this.schedule = new Schedule();
+        this.standings = new Standings(teams, games);
     }
 
     /**
@@ -98,19 +100,37 @@ public abstract class League implements SportsLeague {
         calculateStandings();
     }
 
-    //abstract methods to be implemented in specific sport leagues
+    /**
+     * Generates the schedule for the league.
+     * Requires at least two teams to create a schedule.
+     */
+    @Override
+    public void generateSchedule() {
+        if (teams.size() < 2) {
+            System.out.println("Need at least 2 teams to generate a schedule");
+            return;
+        }
+ 
+        for (int i = 0; i < teams.size(); i++) {
+            for (int j = i + 1; j < teams.size(); j++) {
+                Team team1 = new Team(new ArrayList<>(), teams.get(i));
+                Team team2 = new Team(new ArrayList<>(), teams.get(j));
+                Game game = new Game(team1, team2, 0, 0, false);
+                schedule.addGame(game);
+            }
+        }
+    }
 
     /**
      * Calculates the standings of the league based on the results of the games played.
      */
     @Override
-    public abstract void calculateStandings();
-    
-    /**
-     * Generates the schedule for the league, including matchups and timings.
-     */
-    @Override
-    public abstract void generateSchedule();
+    public void calculateStandings() {
+        standings.calculateStandings();
+        teamStandings = standings.getStandings();
+    }
+
+    //abstract methods to be implemented in specific sport leagues
     
     /**
      * Updates the statistics of a team based on the results of the games played.
