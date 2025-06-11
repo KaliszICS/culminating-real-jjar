@@ -6,7 +6,6 @@ public class SoccerPlayer extends Player{
     protected int goals;
     protected int assists;
     protected int saves;
-    protected int gamesPlayed;
 
     /**
      * constructor for soccer player.
@@ -23,7 +22,6 @@ public class SoccerPlayer extends Player{
         this.goals = 0;
         this.assists = 0;
         this.saves = 0;
-        this.gamesPlayed = 0;
     }
 
     /**
@@ -60,12 +58,12 @@ public class SoccerPlayer extends Player{
      * @return formatted string with averages or "No games played" if no games played
      */
     public String averages(){
-        if (gamesPlayed == 0)
+        if (getGamesPlayed() == 0)
             return "No games played";
         return String.format("%.2f Goals/Game | %.2f Assists/Game | %.2f Saves/Game",
-            (double) goals/gamesPlayed,
-            (double) assists/gamesPlayed,
-            (double) saves/gamesPlayed);
+            (double) goals/getGamesPlayed(),
+            (double) assists/getGamesPlayed(),
+            (double) saves/getGamesPlayed());
     }
 
     /**
@@ -80,7 +78,7 @@ public class SoccerPlayer extends Player{
                "Goals: " + goals + "\n" +
                "Assists: " + assists + "\n" +
                "Saves: " + saves + "\n" +
-               "Games Played: " + gamesPlayed + "\n";
+               "Games Played: " + getGamesPlayed() + "\n";
     }
 
     /**
@@ -99,15 +97,6 @@ public class SoccerPlayer extends Player{
         goals += stats[0];
         assists += stats[1];
         saves += stats[2];
-        gamesPlayed++;
-    }
-
-    /**
-     * getter for the number of games the player has played.
-     * 
-     * @return total games played
-     */
-    public int getGamesPlayed(){
-        return gamesPlayed;
+        incrementGamesPlayed();
     }
 }
