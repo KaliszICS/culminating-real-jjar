@@ -25,6 +25,7 @@ public class VolleyballLeague extends League {
     /**
      * Generates a round-robin schedule where every team plays each other once
      * Only generates a schedule if there are at least 2 teams 
+     * Creates new games with empty scores using the game class
      */
     @Override
     public void generateSchedule() {
