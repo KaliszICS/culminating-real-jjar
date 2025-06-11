@@ -1,23 +1,15 @@
 import java.util.ArrayList;
 
-/**
- * A basketball specific league, extending the League class.
- * Handles the creation of schedule, calculation of standings, and team statistics using the rules of basketball.
- */
-public class BasketballLeague extends League {
+public class VolleyballLeague extends League {
     private Standings standings;
 
-    /**
-     * Constructor for the BasketballLeague class.
-     * Initializes the league with the name "Basketball" and creates a new Standings object.
-     */
-    public BasketballLeague() {
-        super("Basketball");
+    public VolleyballLeague() {
+        super("Volleyball");
         this.standings = new Standings(teams, games);
     }
 
     /**
-     * Calculates the standings for the basketball league.
+     * Calculates the standings for the volleyball league.
      */
     @Override
     public void calculateStandings() {
@@ -25,10 +17,6 @@ public class BasketballLeague extends League {
         teamStandings = standings.getStandings();
     }
 
-    /**
-     * Generates the schedule for the basketball league.
-     * Requires at least two teams to create a schedule.
-     */
     @Override
     public void generateSchedule() {
         if (teams.size() < 2) {
@@ -46,11 +34,6 @@ public class BasketballLeague extends League {
         }
     }
 
-    /**
-     * Updates and displays statistics for a given team.
-     * Calculates wins, losses, points scored, points against, and point differential based on the games played.
-     * @param team The team for which to update and display statistics.
-     */
     @Override
     public void updateTeamStats(Team team) {
         int wins = 0;
@@ -92,4 +75,4 @@ public class BasketballLeague extends League {
         System.out.println("Points Against: " + pointsAgainst);
         System.out.println("Point Differential: " + (pointsScored - pointsAgainst));
     }
-} 
+}

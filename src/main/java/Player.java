@@ -1,30 +1,34 @@
 /**
- * Player class represents a player in a sports team.
- * It contains information about the player's name, goals, assists, position, saves, matches played,
+ * Abstract class representing a player in a sports league.
+ * Contains common attributes and methods that all players share.
  */
-public class Player {
+public abstract class Player {
     private String name;
-    private int goals;
-    private int assists;
-    private String position;
-    private int matchesPlayed;
+    private int number;
+    private int age;
+    private int height;
+    private int weight;
+    private int points;
+    private int gamesPlayed;
 
     /**
-     * Constructor to initialize a Player object with name, goals, assists, position, and matches played.
-     * @param name the name of the player
-     * @param goals the number of goals scored by the player
-     * @param assists the number of assists made by the player
-     * @param position the position of the player in the team
-     * @param matchesPlayed the number of matches played by the player
+     * Constructor for the Player class.
+     * @param name name of the player
+     * @param number jersey number of the player
+     * @param age age of the player
+     * @param height height of the player in centimeters
+     * @param weight weight of the player in kilograms
      */
-    public Player(String name, int goals, int assists, String position, int matchesPlayed) {
+    public Player(String name, int number, int age, int height, int weight) {
         this.name = name;
-        this.goals = goals;
-        this.assists = assists;
-        this.position = position;
-        this.matchesPlayed = matchesPlayed;
+        this.number = number;
+        this.age = age;
+        this.height = height;
+        this.weight = weight;
+        this.points = 0;
+        this.gamesPlayed = 0;
     }
-    
+
     /**
      * Getter for the player's name.
      * @return the name of the player
@@ -32,75 +36,79 @@ public class Player {
     public String getName() {
         return name;
     }
-  
+
     /**
-     * Getter for the player's goals.
-     * @return the number of goals scored by the player
+     * Getter for the player's jersey number.
+     * @return the jersey number of the player
      */
-    public int getGoals() {
-        return goals;
-    }
-  
-    /**
-     * Getter for the player's assists.
-     * @return the number of assists made by the player
-     */
-    public int getAssists() {
-        return assists;
-    }
-  
-    /**
-     * Getter for the player's position.
-     * @return the position of the player
-     */
-    public String getPosition() {
-        return position;
+    public int getNumber() {
+        return number;
     }
 
     /**
-     * Getter for the number of matches played by the player.
-     * @return the number of matches played by the player
+     * Getter for the player's age.
+     * @return the age of the player
      */
-    public int getMatchesPlayed() {
-        return matchesPlayed;
+    public int getAge() {
+        return age;
     }
 
     /**
-     * Updates the player's status with new goals and assists.
-     * @param newGoals new goals scored by the player
-     * @param newAssists new assists made by the player
+     * Getter for the player's height.
+     * @return the height of the player in centimeters
      */
-    public void updateStatus(int newGoals, int newAssists) {
-        this.goals += newGoals;
-        this.assists += newAssists;
-        this.matchesPlayed++;
-
-        System.out.println("Updated stats for " + name + ":");
-        System.out.println("Goals: " + goals + ", Assists: " + assists);
+    public int getHeight() {
+        return height;
     }
 
     /**
-     * Displays the player's profile including name, position, goals, assists, and matches played.
+     * Getter for the player's weight.
+     * @return the weight of the player in kilograms
      */
-    public void displayProfile() {
-        System.out.println("(---Player Status---)");
-        System.out.println("Name: " + name);
-        System.out.println("Position: " + position);
-        System.out.println("Goals: " + goals);
-        System.out.println("Assists: " + assists);
-        System.out.println("Matches Played: " + matchesPlayed);
+    public int getWeight() {
+        return weight;
     }
 
     /**
-     * Calculates and displays the player's performance metrics such as goals per match and assists per match.
+     * Getter for the player's total points.
+     * @return the total points of the player
      */
-    public void matchPerformance() {
-        if(matchesPlayed > 0) {
-            double goalsPerGame = (double) goals / matchesPlayed;
-            double assistsPerGame = (double) assists / matchesPlayed;
-            System.out.println("Goals per match: " + goalsPerGame);
-            System.out.println("Assists per match: " + assistsPerGame);
-        }
+    public int getPoints() {
+        return points;
     }
-    
+
+    /**
+     * Getter for the number of games the player has played.
+     * @return the number of games played
+     */
+    public int getGamesPlayed() {
+        return gamesPlayed;
+    }
+
+    /**
+     * Adds points to the player's total points.
+     * @param points points to add
+     */
+    public void addPoints(int points) {
+        this.points += points;
+    }
+
+    /**
+     * Increments the number of games played by the player.
+     */
+    public void incrementGamesPlayed() {
+        this.gamesPlayed++;
+    }
+
+    /**
+     * Abstract method to get sport-specific statistics.
+     * @return a string containing the player's statistics
+     */
+    public abstract String getStats();
+
+    /**
+     * Abstract method to update sport-specific statistics after a game.
+     * @param stats an array of integers containing the game statistics
+     */
+    public abstract void updateStats(int[] stats);
 }

@@ -64,40 +64,6 @@ public class Game {
     public boolean isGameOver() {
         return gameOver;
     }
-
-    // public void simulateGame() {
-    //     System.out.println("Match Starting 🏆: " + team1.getTeamName() + " vs " + team2.getTeamName());
-
-    //     // Sets each teams points to 0 (GAME BEGINS)
-    //     team1Score = 0;
-    //     team2Score = 0;
-
-        
-    //     Random random = new Random();
-    //     team1Score = random.nextInt(6); // 0-5 goals
-    //     team2Score = random.nextInt(6); // 0-5 goals
-        
-    //     gameOver = true; 
-
-    //     // FINAL RESULTS
-    //     System.out.println("GAME OVER!");
-    //     System.out.println("FINAL SCORE: " + team1.getTeamName() + " " + team1Score + " -- " + team2Score + " " + team2.getTeamName());
-        
-     
-    //     if(team1Score > team2Score) {
-    //         System.out.println(team1.getTeamName() + " WINS!! 🎉🎉 ");
-    //     } else if (team2Score > team1Score){
-            
-    //         System.out.println(team2.getTeamName() + " WINS!! 🎉🎉");
-    //     } else {
-    //         System.out.println("DRAW");
-    //     }
-    // }
-
-    
-//   public String displayGameInfo() {
-
-//   }
     
     /**
      * Returns a string representation of the game, including team names and scores.
