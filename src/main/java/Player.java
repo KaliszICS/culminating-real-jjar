@@ -111,4 +111,5 @@ public abstract class Player {
      * @param stats an array of integers containing the game statistics
      */
     public abstract void updateStats(int[] stats);
+
 }

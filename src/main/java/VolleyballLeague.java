@@ -1,12 +1,20 @@
 import java.util.ArrayList;
+/**
+ * Represents a special class for a volleyball league, inheriting from the league class
+ * This class can calculate standings, generate schedules, and update team statistics based on game results
+ */
 
 public class VolleyballLeague extends League {
+    /**
+     * Construct a Volleyballeague object with the sport name set to "Volleyball"
+     */
     public VolleyballLeague() {
         super("Volleyball");
     }
 
     /**
-     * Calculates the standings for the volleyball league.
+     * Calculates the standings for the volleyball league based on game results
+     * Uses the Standings class to process the list of games and teams
      */
     @Override
     public void calculateStandings() {
@@ -14,7 +22,10 @@ public class VolleyballLeague extends League {
         standings.calculateStandings();
         teamStandings = standings.getStandings();
     }
-
+    /**
+     * Generates a round-robin schedule where every team plays each other once
+     * Only generates a schedule if there are at least 2 teams 
+     */
     @Override
     public void generateSchedule() {
         if (teams.size() < 2) {
@@ -31,7 +42,10 @@ public class VolleyballLeague extends League {
             }
         }
     }
-
+    /**
+     * Updates and displays team statistics for a specified team
+     * Includes wins, losses, setsWon, setsLost and set differential
+     */
     @Override
     public void updateTeamStats(Team team) {
         int wins = 0;
