@@ -1,3 +1,7 @@
+/**
+ * @author Justin, Jonathan, Arvin, Raymond
+ * @version 17.0.1
+ **/
 import java.util.ArrayList;
 /**
  * Represents a special class for a volleyball league, inheriting from the league class
