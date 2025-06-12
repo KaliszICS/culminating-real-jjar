@@ -3,9 +3,9 @@
  * tracks soccer specific statistics like goals, assists, saves, and calculates averages.
  */
 public class SoccerPlayer extends Player{
-    protected int goals;
-    protected int assists;
-    protected int saves;
+    private int goals;
+    private int assists;
+    private int saves;
 
     /**
      * constructor for soccer player.
@@ -49,6 +49,19 @@ public class SoccerPlayer extends Player{
      */
     public int getTotalSaves(){
         return saves;
+    }
+
+    // specific setters
+    public void setGoals(int goals) {
+        this.goals = goals;
+    }
+
+    public void setSoccerAssists(int assists) {
+        this.assists = assists;
+    }
+
+    public void setSaves(int saves) {
+        this.saves = saves;
     }
     
     /**

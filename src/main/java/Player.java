@@ -94,6 +94,14 @@ public abstract class Player {
     }
 
     /**
+     * Sets the player's total points.
+     * @param points total points to set
+     */
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    /**
      * Increments the number of games played by the player.
      */
     public void incrementGamesPlayed() {

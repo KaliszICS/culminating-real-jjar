@@ -1,13 +1,12 @@
 public class VolleyballPlayer extends Player {
-    protected int points;
-    protected int kills;
-    protected int blocks;
-    protected int digs;
-    protected int aces;
-    protected int assists;
-    protected int serviceErrors;
-    protected int attackErrors;
-    protected double attackPercentage;
+    private int kills;
+    private int blocks;
+    private int digs;
+    private int aces;
+    private int assists;
+    private int serviceErrors;
+    private int attackErrors;
+    private double attackPercentage;
 
     /**
      * Constructor for the VolleyballPlayer class.
@@ -29,6 +28,80 @@ public class VolleyballPlayer extends Player {
         this.attackPercentage = 0.0;
     }
 
+    // specific getters
+    public int getVolleyballPoints() {
+        return getPoints();
+    }
+
+    public int getKills() {
+        return kills;
+    }
+
+    public int getVolleyballBlocks() {
+        return blocks;
+    }
+
+    public int getDigs() {
+        return digs;
+    }
+
+    public int getAces() {
+        return aces;
+    }
+
+    public int getVolleyballAssists() {
+        return assists;
+    }
+
+    public int getServiceErrors() {
+        return serviceErrors;
+    }
+
+    public int getAttackErrors() {
+        return attackErrors;
+    }
+
+    public double getAttackPercentage() {
+        return attackPercentage;
+    }
+
+    // specific setters
+    public void setVolleyballPoints(int points) {
+        setPoints(points);
+    }
+
+    public void setKills(int kills) {
+        this.kills = kills;
+    }
+
+    public void setVolleyballBlocks(int blocks) {
+        this.blocks = blocks;
+    }
+
+    public void setDigs(int digs) {
+        this.digs = digs;
+    }
+
+    public void setAces(int aces) {
+        this.aces = aces;
+    }
+
+    public void setVolleyballAssists(int assists) {
+        this.assists = assists;
+    }
+
+    public void setServiceErrors(int serviceErrors) {
+        this.serviceErrors = serviceErrors;
+    }
+
+    public void setAttackErrors(int attackErrors) {
+        this.attackErrors = attackErrors;
+    }
+
+    public void setAttackPercentage(double attackPercentage) {
+        this.attackPercentage = attackPercentage;
+    }
+
     /**
      * Getter for the player's volleyball specific statistics.
      * @return a string containing the player's volleyball statistics
@@ -36,7 +109,7 @@ public class VolleyballPlayer extends Player {
     @Override
     public String getStats() {
         return "\nVolleyball Statistics for " + getName() + ":\n" +
-               "Points: " + points + "\n" +
+               "Points: " + getPoints() + "\n" +
                "Kills: " + kills + "\n" +
                "Blocks: " + blocks + "\n" +
                "Digs: " + digs + "\n" +
@@ -80,7 +153,7 @@ public class VolleyballPlayer extends Player {
         if (getGamesPlayed() == 0)
             return "No games played";
         return String.format("%.1f Points/Game | %.1f Kills/Game | %.1f Blocks/Game | %.1f Digs/Game | %.1f Aces/Game",
-            (double) points/getGamesPlayed(),
+            (double) getPoints()/getGamesPlayed(),
             (double) kills/getGamesPlayed(),
             (double) blocks/getGamesPlayed(),
             (double) digs/getGamesPlayed(),

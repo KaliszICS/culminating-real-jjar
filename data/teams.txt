@@ -1,6 +1,6 @@
 Los Angeles Lakers|Basketball
 Raymond Zeng,23,38,206,113
-STATS:0,10,8,2,1,12,20,4,6,7,8,1
+STATS:35,10,8,2,1,12,20,4,6,7,8,1
 Jonathan Zhao,3,30,208,115
 STATS:0,0,0,0,0,0,0,0,0,0,0,0
 ---

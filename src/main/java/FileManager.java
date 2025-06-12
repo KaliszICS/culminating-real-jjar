@@ -74,31 +74,31 @@ public class FileManager {
                 
                 else if (player instanceof BasketballPlayer) {
                     BasketballPlayer bp = (BasketballPlayer) player;
-                    writer.println("STATS:" + bp.points + "," + 
-                                 bp.rebounds + "," + 
-                                 bp.assists + "," + 
-                                 bp.steals + "," + 
-                                 bp.blocks + "," + 
-                                 bp.fieldGoals + "," + 
-                                 bp.fieldGoalAttempts + "," + 
-                                 bp.threePointers + "," + 
-                                 bp.threePointAttempts + "," + 
-                                 bp.freeThrows + "," + 
-                                 bp.freeThrowAttempts + "," + 
+                    writer.println("STATS:" + bp.getBasketballPoints() + "," + 
+                                 bp.getRebounds() + "," + 
+                                 bp.getBasketballAssists() + "," + 
+                                 bp.getSteals() + "," + 
+                                 bp.getBlocks() + "," + 
+                                 bp.getFieldGoals() + "," + 
+                                 bp.getFieldGoalAttempts() + "," + 
+                                 bp.getThreePointers() + "," + 
+                                 bp.getThreePointAttempts() + "," + 
+                                 bp.getFreeThrows() + "," + 
+                                 bp.getFreeThrowAttempts() + "," + 
                                  bp.getGamesPlayed());
                 } 
                 
                 else if (player instanceof VolleyballPlayer) {
                     VolleyballPlayer vp = (VolleyballPlayer) player;
-                    writer.println("STATS:" + vp.points + "," + 
-                                 vp.kills + "," + 
-                                 vp.blocks + "," + 
-                                 vp.digs + "," + 
-                                 vp.aces + "," + 
-                                 vp.assists + "," + 
-                                 vp.serviceErrors + "," + 
-                                 vp.attackErrors + "," + 
-                                 vp.attackPercentage + "," + 
+                    writer.println("STATS:" + vp.getVolleyballPoints() + "," + 
+                                 vp.getKills() + "," + 
+                                 vp.getVolleyballBlocks() + "," + 
+                                 vp.getDigs() + "," + 
+                                 vp.getAces() + "," + 
+                                 vp.getVolleyballAssists() + "," + 
+                                 vp.getServiceErrors() + "," + 
+                                 vp.getAttackErrors() + "," + 
+                                 vp.getAttackPercentage() + "," + 
                                  vp.getGamesPlayed());
                 }
             }
@@ -235,9 +235,9 @@ public class FileManager {
         if (player instanceof SoccerPlayer) {
             if (stats.length >= 4) {
                 SoccerPlayer sp = (SoccerPlayer) player;
-                sp.goals = Integer.parseInt(stats[0]);
-                sp.assists = Integer.parseInt(stats[1]);
-                sp.saves = Integer.parseInt(stats[2]);
+                sp.setGoals(Integer.parseInt(stats[0]));
+                sp.setSoccerAssists(Integer.parseInt(stats[1]));
+                sp.setSaves(Integer.parseInt(stats[2]));
                 for (int i = 0; i < Integer.parseInt(stats[3]); i++) {
                     sp.incrementGamesPlayed();
                 }
@@ -247,17 +247,17 @@ public class FileManager {
         else if (player instanceof BasketballPlayer) {
             if (stats.length >= 12) {
                 BasketballPlayer bp = (BasketballPlayer) player;
-                bp.points = Integer.parseInt(stats[0]);
-                bp.rebounds = Integer.parseInt(stats[1]);
-                bp.assists = Integer.parseInt(stats[2]);
-                bp.steals = Integer.parseInt(stats[3]);
-                bp.blocks = Integer.parseInt(stats[4]);
-                bp.fieldGoals = Integer.parseInt(stats[5]);
-                bp.fieldGoalAttempts = Integer.parseInt(stats[6]);
-                bp.threePointers = Integer.parseInt(stats[7]);
-                bp.threePointAttempts = Integer.parseInt(stats[8]);
-                bp.freeThrows = Integer.parseInt(stats[9]);
-                bp.freeThrowAttempts = Integer.parseInt(stats[10]);
+                bp.setBasketballPoints(Integer.parseInt(stats[0]));
+                bp.setRebounds(Integer.parseInt(stats[1]));
+                bp.setBasketballAssists(Integer.parseInt(stats[2]));
+                bp.setSteals(Integer.parseInt(stats[3]));
+                bp.setBlocks(Integer.parseInt(stats[4]));
+                bp.setFieldGoals(Integer.parseInt(stats[5]));
+                bp.setFieldGoalAttempts(Integer.parseInt(stats[6]));
+                bp.setThreePointers(Integer.parseInt(stats[7]));
+                bp.setThreePointAttempts(Integer.parseInt(stats[8]));
+                bp.setFreeThrows(Integer.parseInt(stats[9]));
+                bp.setFreeThrowAttempts(Integer.parseInt(stats[10]));
                 for (int i = 0; i < Integer.parseInt(stats[11]); i++) {
                     bp.incrementGamesPlayed();
                 }
@@ -267,15 +267,15 @@ public class FileManager {
         else if (player instanceof VolleyballPlayer) {
             if (stats.length >= 10) {
                 VolleyballPlayer vp = (VolleyballPlayer) player;
-                vp.points = Integer.parseInt(stats[0]);
-                vp.kills = Integer.parseInt(stats[1]);
-                vp.blocks = Integer.parseInt(stats[2]);
-                vp.digs = Integer.parseInt(stats[3]);
-                vp.aces = Integer.parseInt(stats[4]);
-                vp.assists = Integer.parseInt(stats[5]);
-                vp.serviceErrors = Integer.parseInt(stats[6]);
-                vp.attackErrors = Integer.parseInt(stats[7]);
-                vp.attackPercentage = Double.parseDouble(stats[8]);
+                vp.setVolleyballPoints(Integer.parseInt(stats[0]));
+                vp.setKills(Integer.parseInt(stats[1]));
+                vp.setVolleyballBlocks(Integer.parseInt(stats[2]));
+                vp.setDigs(Integer.parseInt(stats[3]));
+                vp.setAces(Integer.parseInt(stats[4]));
+                vp.setVolleyballAssists(Integer.parseInt(stats[5]));
+                vp.setServiceErrors(Integer.parseInt(stats[6]));
+                vp.setAttackErrors(Integer.parseInt(stats[7]));
+                vp.setAttackPercentage(Double.parseDouble(stats[8]));
                 for (int i = 0; i < Integer.parseInt(stats[9]); i++) {
                     vp.incrementGamesPlayed();
                 }
