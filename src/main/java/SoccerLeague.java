@@ -1,7 +1,9 @@
 /**
+ * @author Justin, Jonathan, Arvin, Raymond
+ * @version 17.0.1
  * soccer league class extends the league class for soccer specific functionality.
  * handles soccer specific team statistics calculations including wins, losses, goals, and goal differential.
- */
+ **/
 public class SoccerLeague extends League {
     
     /**
