@@ -1,7 +1,9 @@
 /**
+ * @author Justin, Jonathan, Arvin, Raymond
+ * @version 17.0.1
  * Abstract class representing a player in a sports league.
  * Contains common attributes and methods that all players share.
- */
+ **/
 public abstract class Player {
     private String name;
     private int number;
