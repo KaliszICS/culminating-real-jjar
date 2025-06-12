@@ -1,3 +1,7 @@
+/**
+ * @author Justin, Jonathan, Arvin, Raymond
+ * @version 17.0.1
+ **/
 import java.util.ArrayList;
 import java.util.Arrays;
 
