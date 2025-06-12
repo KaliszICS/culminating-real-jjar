@@ -1,3 +1,7 @@
+/**
+ * @author Justin, Jonathan, Arvin, Raymond
+ * @version 17.0.1
+ **/
 // main class for the program, run this to start!!!
 
 import java.util.ArrayList;
