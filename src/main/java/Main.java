@@ -14,12 +14,12 @@ public class Main {
 		// create the leagues
 		BasketballLeague nba = new BasketballLeague();
 		SoccerLeague premiere = new SoccerLeague();
-		VolleyballLeague fivb = new VolleyballLeague();
+		VolleyballLeague vnl = new VolleyballLeague();
 		
 		// save the leagues
 		fileManager.saveLeague(nba);
 		fileManager.saveLeague(premiere);
-		fileManager.saveLeague(fivb);
+		fileManager.saveLeague(vnl);
 		
 		// making the basketball team and players
 		ArrayList<Player> lakersPlayers = new ArrayList<>();
