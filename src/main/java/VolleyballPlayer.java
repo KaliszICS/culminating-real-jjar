@@ -1,3 +1,7 @@
+/**
+ * @author Justin, Jonathan, Arvin, Raymond
+ * @version 17.0.1
+ **/
 public class VolleyballPlayer extends Player {
     private int kills;
     private int blocks;
