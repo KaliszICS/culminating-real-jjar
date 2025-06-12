@@ -1,7 +1,9 @@
 /**
+ * @author Justin, Jonathan, Arvin, Raymond
+ * @version 17.0.1
  * soccer player class extends the player class for soccer specific functionality.
  * tracks soccer specific statistics like goals, assists, saves, and calculates averages.
- */
+ **/
 public class SoccerPlayer extends Player{
     private int goals;
     private int assists;
