@@ -1,4 +1,6 @@
 /**
+ * @author Justin, Jonathan, Arvin, Raymond
+ * @version 17.0.1
  * Represents a game between two teams.
  * Contains information about the teams, their scores, and the game status.
  */
