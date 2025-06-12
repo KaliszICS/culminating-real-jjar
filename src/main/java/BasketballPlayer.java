@@ -1,6 +1,6 @@
 /**
  * @author Justin, Jonathan, Arvin, Raymond
- * @version 17.0.1;
+ * @version 17.0.1
  **/
 public class BasketballPlayer extends Player {
     private int rebounds;
