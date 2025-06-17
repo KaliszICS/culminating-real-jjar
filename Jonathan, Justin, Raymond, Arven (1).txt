@@ -1,0 +1,6 @@
+Great work. I'm a big confused by the interface since it only gets used once and your note says that you will inherit from League.
+Perhaps those features should just be an abstract class instead then?
+Player should have either a composition or aggregation arrow from Team
+Same from Team and Schedule.  Data Structures still count.
+
+90

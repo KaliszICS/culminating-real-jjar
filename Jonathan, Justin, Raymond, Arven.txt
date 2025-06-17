@@ -1,0 +1,12 @@
+You don't have an actual program that someone can run!
+There also seem to be a lot of implementations missing that you had in your UML and didn't incorporate.
+Polymorphism really was the key to success for this whole project, where displaying and viewing everything should be a simple UI that uses the classes to populate everything for them (players for different sports could populate the important information using hashmaps of their stats)
+Otherwise it was really well done!  There is defintely a good framework here that just needs to be flushed out a little more.
+
+
+K(30%): 100
+I(30%): 80
+C(10%): 100
+A(30%): 50
+
+79%
